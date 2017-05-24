@@ -1,0 +1,20 @@
+{
+  "name": "krkbars",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "SET PORT=8080 && node ./bin/www",
+    "test": "mocha routes/*.spec.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "supertest": "^3.0.0"
+  }
+}
