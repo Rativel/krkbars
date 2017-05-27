@@ -6,6 +6,11 @@ const bodyParser = require('body-parser')
 const index = require('./routes/index')
 const bars = require('./routes/bars')
 
+if (process.env.NODE_ENV !== 'test') {
+    const barsUpdater = require('./services/barsUpdater')
+    barsUpdater().then(() => console.log('Bars have been updated'))
+}
+
 const app = express()
 
 app.use(logger('dev'))
