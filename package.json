@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "SET PORT=8080 && node ./bin/www",
+    "start": "node ./bin/www",
     "test": "mocha routes/*.spec.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
-    "debug": "~2.6.3",
     "express": "~4.15.2",
+    "lowdb": "^0.16.2",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
   },

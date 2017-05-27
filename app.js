@@ -12,7 +12,7 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
+app.use('/api/bars', bars)
 app.use('/', index)
-app.use('/bars', bars)
 
 module.exports = app

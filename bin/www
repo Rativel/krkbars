@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const app = require('../app')
-const debug = require('debug')('krkbars:server')
 const http = require('http')
 
 /**
@@ -69,5 +68,5 @@ function onError(error) {
 function onListening() {
     const address = server.address()
     const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + address.port
-    debug('Listening on ' + bind)
+    console.log('Listening on ' + bind)
 }
