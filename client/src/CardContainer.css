@@ -1,0 +1,23 @@
+.CardContainer {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.CardWrap {
+    padding: 1rem 2rem;
+}
+
+@media screen and (min-width: 60em) {
+    .CardContainer {
+        width: 58rem;
+    }
+}
+
+@media screen and (min-width: 80em) {
+    .CardContainer {
+        width: 78rem;
+    }
+}

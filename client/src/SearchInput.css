@@ -1,0 +1,13 @@
+.SearchInput {
+    width: 18rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background: white url('./search.svg') no-repeat 6px 6px;
+    padding: 6px 6px 6px 30px;
+}
+
+.SearchInput::-webkit-search-cancel-button {
+    padding: 1px;
+    -webkit-appearance: searchfield-cancel-button;
+}
