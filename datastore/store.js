@@ -2,6 +2,8 @@ const db = require('lowdb')()
 const BARS = 'bars'
 const PHOTOS = 'photos'
 
+const clear = () => db.setState({})
+
 const setBars = value => db.set(BARS, value).write()
 
 const addBars = value => db.set(BARS, findAllBars().concat(value)).write()
@@ -14,4 +16,4 @@ const setPhotoUrl = (id, value) => db.set([PHOTOS, id], (value)).write()
 
 const findPhotoUrl = id => (db.get([PHOTOS, id]).value())
 
-module.exports = {setBars, addBars, findAllBars, findBar, setPhotoUrl, findPhotoUrl}
+module.exports = {clear, setBars, addBars, findAllBars, findBar, setPhotoUrl, findPhotoUrl}
