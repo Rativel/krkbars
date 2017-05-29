@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
+const favicon = require('serve-favicon')
 
 const bars = require('./routes/bars')
 const photos = require('./routes/photos')
@@ -13,6 +14,8 @@ if (process.env.NODE_ENV !== 'test') {
 
 const app = express()
 app.use(logger('dev'))
+
+app.use(favicon(path.join(__dirname, 'client', 'build', 'favicon.ico')))
 
 app.use('/api/bars', bodyParser.urlencoded({extended: false}), bars)
 app.use('/api/photos', bodyParser.urlencoded({extended: false}), photos)
