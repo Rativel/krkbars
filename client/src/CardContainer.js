@@ -25,12 +25,12 @@ class CardContainer extends React.Component {
         return (
             <div className="center w-100 tc">
                 <SearchInput onChange={this.onFilterChange}/>
-                <CardList cards={filteredBars} key="place_id"/>
+                <CardList cards={filteredBars} id="place_id"/>
             </div>
         )
     }
 }
 
-const filterByName = (bars = [], name) => bars.filter(bar => bar.name.toLowerCase().includes(name))
+const filterByName = (bars = [], name) => bars.filter(bar => bar.name.toLowerCase().indexOf(name) !== -1)
 
 export default CardContainer

@@ -2,9 +2,9 @@ import React from 'react'
 import Card from "./Card"
 import './CardList.css'
 
-const CardList = ({cards, key}) => (
+const CardList = ({cards, id}) => (
     <div className="CardList">
-        {cards.map(card => <Card key={card[key]} data={card}/>)}
+        {cards.map(card => <Card key={card[id]} data={card}/>)}
     </div>
 )
 
