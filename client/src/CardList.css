@@ -1,4 +1,4 @@
-.CardContainer {
+.CardList {
     margin: auto;
     width: 100%;
     display: flex;
@@ -7,13 +7,13 @@
 }
 
 @media screen and (min-width: 60em) {
-    .CardContainer {
+    .CardList {
         width: 58rem;
     }
 }
 
 @media screen and (min-width: 80em) {
-    .CardContainer {
+    .CardList {
         width: 78rem;
     }
 }

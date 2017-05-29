@@ -4,7 +4,7 @@ import logo from './logo.svg'
 import 'tachyons/css/tachyons.min.css'
 
 import SearchInput from "./SearchInput"
-import CardContainer from "./CardContainer"
+import CardList from "./CardList"
 
 class App extends React.Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class App extends React.Component {
                     <SearchInput onChange={this.onFilterChange}/>
                 </div>
                 <div className="center w-100">
-                    <CardContainer cards={filteredBars} key="place_id"/>
+                    <CardList cards={filteredBars} key="place_id"/>
                 </div>
             </div>
         )
