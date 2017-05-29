@@ -6,10 +6,6 @@
     justify-content: center;
 }
 
-.CardWrap {
-    padding: 1rem 2rem;
-}
-
 @media screen and (min-width: 60em) {
     .CardContainer {
         width: 58rem;

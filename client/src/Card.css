@@ -1,17 +1,16 @@
-
 .Card {
-    margin: auto;
-    width: 90%;
+    margin: 1rem;
+    width: 15rem;
     height: 20rem;
     border: 1px solid #ddd;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
     transition: 0.5s;
 }
 
 .Card:hover {
     border: 1px solid #999;
+    color: #777;
 }
 
 .viewport {
@@ -23,10 +22,4 @@
 .image {
     margin: auto;
     width: 100%;
-}
-
-@media screen and (min-width: 30em) {
-    .Card {
-        width: 15rem;
-    }
 }

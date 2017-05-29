@@ -2,13 +2,9 @@ import React from 'react'
 import Rating from "./Rating"
 import './Card.css'
 
-const color = colorizer()
-
 const Card = ({data}) => (
-    <article className='Card'>
-        <div className="viewport" style={{backgroundColor: color.next().value}}>
-            {/*<img src={photo} className="image" title="Photo" alt="Place"/>*/}
-        </div>
+    <article className="Card">
+        <Image name={data.name} photo={data.photo}/>
         <div className="pa1">
             <h1 className="f4">{data.name}</h1>
             <h2 className="f5"><Rating value={data.rating}/></h2>
@@ -19,7 +15,13 @@ const Card = ({data}) => (
 
 export default Card
 
-function* colorizer() {
+const Image = ({photo, name}) => (
+    <div className="viewport" style={{backgroundColor: color.next().value}}>
+        {photo && <img src={`/api/photos/${photo.photo_reference}`} className="image" title={name} alt={name}/>}
+    </div>
+)
+
+const color = (function* colorizer() {
     while(true) {
         yield '#545252'
         yield '#d2e7e7'
@@ -27,4 +29,4 @@ function* colorizer() {
         yield '#f6e3db'
         yield '#f092a2'
     }
-}
+})()
