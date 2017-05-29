@@ -17,7 +17,7 @@ export default Card
 
 const Image = ({photo, name}) => (
     <div className="viewport" style={{backgroundColor: color.next().value}}>
-        {photo && <img src={`/api/photos/${photo.photo_reference}`} className="image" title={name} alt={name}/>}
+        {photo && <img src={photo.url || `/api/photos/${photo.photo_reference}`} className="image" title={name} alt={name}/>}
     </div>
 )
 

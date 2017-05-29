@@ -12,7 +12,10 @@ const findAllBars = () => db.get(BARS).value() || []
 
 const findBar = place_id => db.get(BARS).find({place_id}).value() || null
 
-const setPhotoUrl = (id, value) => db.set([PHOTOS, id], (value)).write()
+const setPhotoUrl = (id, value) => {
+    db.set([PHOTOS, id], (value)).write()
+    db.get(BARS).find(['photo.photo_reference', id]).set('photo.url', value).write()
+}
 
 const findPhotoUrl = id => (db.get([PHOTOS, id]).value())
 
