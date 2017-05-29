@@ -1,11 +1,9 @@
-console.log('Google API Key:', process.env.GOOGLE_API_KEY)
-
 const googleClient = require('@google/maps').createClient({key: process.env.GOOGLE_API_KEY, Promise})
 const bars = require('../datastore/bars')
 
 const KRAKOW_MAIN_SQUARE_LOCATION = '50.0619753,19.9370854'
-const mapPlace = ({place_id, name, rating, vicinity, opening_hours}) =>
-    ({place_id, name, rating, vicinity, opening_hours})
+const mapPlace = ({place_id, name, rating, vicinity, photos = []}) =>
+    ({place_id, name, rating, vicinity, photo: photos[0]})
 
 module.exports = function barsUpdater() {
     return updateBars()

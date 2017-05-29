@@ -1,11 +1,12 @@
 {
   "name": "krkbars",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "prestart": "cd client && npm run build",
     "test": "SET NODE_ENV=test && mocha routes/*.spec.js",
-    "test:updateService": "SET NODE_ENV=test && mocha services/*.spec.js"
+    "test:services": "SET NODE_ENV=test && mocha services/*.spec.js"
   },
   "dependencies": {
     "@google/maps": "^0.3.1",
