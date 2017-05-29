@@ -1,17 +1,17 @@
 const express = require('express')
 const router = express.Router()
-const photos = require('../datastore/photos')
+const store = require('../datastore/store')
 const fetchPhoto = require('../services/fetchPhoto')
 
 router.get('/:id', function(req, res) {
     const id = req.params.id
-    const photoUrl = photos.find(id)
+    const photoUrl = store.findPhotoUrl(id)
     if (photoUrl) {
         res.redirect(photoUrl)
     } else {
         fetchPhoto(id)
             .then(location => {
-                photos.set(id, location)
+                store.setPhotoUrl(id, location)
                 res.redirect(location)
             })
             .catch(err => {

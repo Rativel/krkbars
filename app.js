@@ -9,7 +9,9 @@ const photos = require('./routes/photos')
 
 if (process.env.NODE_ENV !== 'test') {
     const barsUpdater = require('./services/barsUpdater')
-    barsUpdater().then(() => console.log('Bars have been updated'))
+    const update = () => barsUpdater().then(() => console.log('Bars have been updated'))
+    update()
+    setInterval(update, 1000 * 60 * 60 * 24)
 }
 
 const app = express()

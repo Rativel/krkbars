@@ -6,7 +6,7 @@ const bullPubPhotoId = 'CmRYAAAA49WLG2CnyDJvQuD8Qjsm1Re9dYJzo2sLK3bzgdxpNFYUF9T1
 
 const expectedPhotoUrl = 'https://lh3.googleusercontent.com/p/AF1QipNHhVhUfERYC7VRz9G0u85-XlL_o1cxNuGD9X-V=s1600-w250'
 
-describe('Bars Updater', function () {
+describe('Photo fetch', function () {
     afterEach(function () {
         process.env.GOOGLE_API_KEY = apiKey
     })

@@ -1,12 +1,12 @@
 const request = require('supertest')
 const app = require('../app')
-const bars = require('../datastore/bars')
+const store = require('../datastore/store')
 
 describe('Listing bars on /bars', function () {
     const list = [{name: 'Test 1', place_id: 't1'}, {name: 'Test 2', place_id: 't2'}, {name: 'Test 3', place_id: 't3'}]
 
     before(function () {
-        bars.set(list)
+        store.setBars(list)
     })
 
     it('should return list of bars', function (done) {

@@ -1,5 +1,5 @@
 const googleClient = require('@google/maps').createClient({key: process.env.GOOGLE_API_KEY, Promise})
-const bars = require('../datastore/bars')
+const store = require('../datastore/store')
 
 const KRAKOW_MAIN_SQUARE_LOCATION = '50.0619753,19.9370854'
 const mapPlace = ({place_id, name, rating, vicinity, photos = []}) =>
@@ -17,7 +17,7 @@ function updateBars() {
     }).asPromise()
         .then(({status, json}) => {
             console.log('Update status: ', json.status || status)
-            bars.set(json.results.map(mapPlace))
+            store.setBars(json.results.map(mapPlace))
             if(json.next_page_token) {
                 return delay2s(() => updateNextPage(json.next_page_token))
             }
@@ -31,7 +31,7 @@ function updateNextPage(pagetoken) {
     return googleClient.placesNearby({location: KRAKOW_MAIN_SQUARE_LOCATION, pagetoken}).asPromise()
         .then(({status, json}) => {
             console.log('Update status: ', json.status || status)
-            bars.set(bars.all().concat(json.results.map(mapPlace)))
+            store.addBars(json.results.map(mapPlace))
             if(json.next_page_token) {
                 return delay2s(() => updateNextPage(json.next_page_token))
             }

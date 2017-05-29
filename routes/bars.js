@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const bars = require('../datastore/bars')
+const store = require('../datastore/store')
 
 router.get('/', function(req, res) {
-    res.status(200).json(bars.all())
+    res.status(200).json(store.findAllBars())
 })
 
 router.get('/:id', function(req, res) {
-    const bar = bars.find(req.params.id)
+    const bar = store.findBar(req.params.id)
     if (bar) {
         res.status(200).json(bar)
     } else {

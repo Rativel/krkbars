@@ -1,15 +1,14 @@
-
 const request = require('supertest')
 const app = require('../app')
-const photosStore = require('../datastore/photos')
+const store = require('../datastore/store')
 
 describe('Getting photo from /api/photos', function () {
     const photos = {p1: 'data_rp1', p2: 'data_rp2', p3: 'data_rp3'}
 
     before(function () {
-        photosStore.set('p1', photos.p1)
-        photosStore.set('p2', photos.p2)
-        photosStore.set('p3', photos.p3)
+        store.setPhotoUrl('p1', photos.p1)
+        store.setPhotoUrl('p2', photos.p2)
+        store.setPhotoUrl('p3', photos.p3)
     })
 
     it('should return bad request', function (done) {
